@@ -1,0 +1,16 @@
+<div>
+    <h2>Demo component</h2>
+    <h3>Name: {{username}}, Gender: {{gender}}</h3>
+    <h4>List of items</h4>
+    <ol>
+        <li *ngFor = "let i of items">{{i}}</li>
+    </ol>
+    <table border = '1'>
+        <tr>
+            <th>ID</th><th>NAME</th><th>AGE</th>
+        </tr>
+        <tr *ngFor = "let u of users">
+            <td>{{u.id}}</td><td>{{u.name}}</td><td>{{u.age}}</td>
+        </tr>
+    </table>
+</div>
