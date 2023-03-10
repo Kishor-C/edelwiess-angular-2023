@@ -5,7 +5,8 @@
     <ol>
         <li *ngFor = "let i of items">{{i}}</li>
     </ol>
-    <table border = '1'>
+    <div>Table will be displayed: {{status}}</div>
+    <table border = '1' *ngIf = "status">
         <tr>
             <th>ID</th><th>NAME</th><th>AGE</th>
         </tr>
@@ -13,4 +14,30 @@
             <td>{{u.id}}</td><td>{{u.name}}</td><td>{{u.age}}</td>
         </tr>
     </table>
+    <div>
+        <p>Status: {{status}}</p>
+        <p [class.one] = "status">Some Text</p> <!--property binding-->
+        <button (click) = "toggle()">Toggle</button> <!--event binding-->
+    </div>
+    <div>
+        Username <input type = "text" #tf>
+        <div>
+            <button (click) = "handleClick(tf.value)">MyButton</button>
+        </div>
+    </div>
+    <div>
+        <h3>Two way databinding</h3>
+        <div>
+            <input type = "text" name = "un" [(ngModel)] = "username" autocomplete="off">
+            <input type = "text" name = "un2" [(ngModel)] = "username" autocomplete="off">
+        </div>
+    </div>
+    <h3>Angular Pipes</h3>
+    <p>Username: {{username | uppercase }}</p>
+    <p>Salary: {{salary | currency}}</p>
+    <p>Salary: {{salary | currency : 'INR' }}</p>
+    <p>Dob: {{dob}}</p>
+    <p>Dob: {{dob | date: 'dd-MM-yyyy'}}, Dob: {{dob | date: 'dd-MMM-yyyy' | uppercase }}</p>
+    <p>JSON : {{users | json | uppercase}}</p> <!-- pipes chaining-->
+    <p>{{username | nameFormatter : gender }}</p>
 </div>

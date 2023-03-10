@@ -1,0 +1,20 @@
+<div>
+    <h2>TDF Demo</h2>
+    <form #userForm = "ngForm" (ngSubmit) = "handleSubmit(userForm.value)">
+        <div>
+            Name <input type = "text" name = "user" ngModel required
+            autocomplete="off" #tf1 = "ngModel">
+            <span style = 'color:red' [hidden] = 'tf1.valid||tf1.pristine'>Name is required</span>
+        </div>
+        <div>
+            Password <input type = "password" name = "pass" ngModel required
+            #tf2 = "ngModel">
+            <span style = 'color:red' [hidden] = 'tf2.valid'>Password is required</span>
+        </div>
+        <div>
+            <input type = "submit" value = "Save" [disabled] = "userForm.invalid">
+        </div>
+    </form>
+    <p>Form is valid: {{userForm.valid}}, Name is valid: {{tf1.valid}}, Password is valid: {{tf2.valid}}</p>
+    <p>Name pristine: {{tf1.pristine}}, Password pristine: {{tf2.pristine}}</p>
+</div>
